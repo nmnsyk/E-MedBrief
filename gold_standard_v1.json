@@ -1,0 +1,745 @@
+[
+  {
+    "fall_id": "01",
+    "datei": "01_ambulant_erworbene_pneumonie.txt",
+    "diagnosen": [
+      "Ambulant erworbene Pneumonie des rechten Unterlappens",
+      "Arterielle Hypertonie"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Amoxicillin/Clavulansäure",
+        "dosis": "875/125 mg",
+        "einnahmeschema": "1-0-1 für weitere 3 Tage"
+      },
+      {
+        "name": "Amlodipin",
+        "dosis": "5 mg",
+        "einnahmeschema": "1-0-0"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Leukozyten",
+        "wert": "13,2",
+        "einheit": "G/l"
+      },
+      {
+        "name": "CRP",
+        "wert": "86",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "Prokalzitonin",
+        "wert": "0,35",
+        "einheit": "ng/ml"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "0,84",
+        "einheit": "mg/dl"
+      }
+    ]
+  },
+  {
+    "fall_id": "02",
+    "datei": "02_dekompensierte_herzinsuffizienz.txt",
+    "diagnosen": [
+      "Akut dekompensierte chronische Herzinsuffizienz mit reduzierter Ejektionsfraktion (HFrEF)",
+      "Arterielle Hypertonie"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Torasemid",
+        "dosis": "10 mg",
+        "einnahmeschema": "1-0-0"
+      },
+      {
+        "name": "Bisoprolol",
+        "dosis": "2,5 mg",
+        "einnahmeschema": "1-0-0"
+      },
+      {
+        "name": "Ramipril",
+        "dosis": "2,5 mg",
+        "einnahmeschema": "1-0-0"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "NT-proBNP",
+        "wert": "4.200",
+        "einheit": "pg/ml"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "1,30",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "Natrium",
+        "wert": "137",
+        "einheit": "mmol/l"
+      },
+      {
+        "name": "Kalium",
+        "wert": "4,1",
+        "einheit": "mmol/l"
+      }
+    ]
+  },
+  {
+    "fall_id": "03",
+    "datei": "03_akute_pyelonephritis.txt",
+    "diagnosen": [
+      "Akute rechtsseitige Pyelonephritis"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Cefuroxim",
+        "dosis": "500 mg",
+        "einnahmeschema": "1-0-1 für weitere 7 Tage"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "CRP",
+        "wert": "112",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "Leukozyten",
+        "wert": "15,4",
+        "einheit": "G/l"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "0,90",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "Nitrit im Urin",
+        "wert": "positiv",
+        "einheit": ""
+      },
+      {
+        "name": "Leukozyten im Urin",
+        "wert": "++",
+        "einheit": ""
+      }
+    ]
+  },
+  {
+    "fall_id": "04",
+    "datei": "04_akute_cholezystitis.txt",
+    "diagnosen": [
+      "Akute kalkulöse Cholezystitis",
+      "Cholezystolithiasis"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Ibuprofen",
+        "dosis": "400 mg",
+        "einnahmeschema": "bei Bedarf, höchstens dreimal täglich für wenige Tage"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Leukozyten",
+        "wert": "13,8",
+        "einheit": "G/l"
+      },
+      {
+        "name": "CRP",
+        "wert": "74",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "Bilirubin gesamt",
+        "wert": "0,8",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "ALT",
+        "wert": "38",
+        "einheit": "U/l"
+      }
+    ]
+  },
+  {
+    "fall_id": "05",
+    "datei": "05_migraene_mit_aura.txt",
+    "diagnosen": [
+      "Migräne mit visueller Aura"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Sumatriptan",
+        "dosis": "50 mg",
+        "einnahmeschema": "bei Migräneattacke nach ärztlicher Anordnung"
+      }
+    ],
+    "laborwerte": []
+  },
+  {
+    "fall_id": "06",
+    "datei": "06_tiefe_beinvenenthrombose.txt",
+    "diagnosen": [
+      "Proximale tiefe Beinvenenthrombose links"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Apixaban",
+        "dosis": "10 mg",
+        "einnahmeschema": "1-0-1 für insgesamt 7 Tage, danach 5 mg 1-0-1"
+      },
+      {
+        "name": "Losartan",
+        "dosis": "50 mg",
+        "einnahmeschema": "1-0-0"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "D-Dimere",
+        "wert": "2,4",
+        "einheit": "mg/l FEU"
+      },
+      {
+        "name": "Hämoglobin",
+        "wert": "13,9",
+        "einheit": "g/dl"
+      },
+      {
+        "name": "Thrombozyten",
+        "wert": "264",
+        "einheit": "G/l"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "0,85",
+        "einheit": "mg/dl"
+      }
+    ]
+  },
+  {
+    "fall_id": "07",
+    "datei": "07_akute_pankreatitis.txt",
+    "diagnosen": [
+      "Akute interstitielle Pankreatitis"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Metamizol",
+        "dosis": "500 mg",
+        "einnahmeschema": "bei Bedarf gegen Schmerzen, maximal nach Verordnung"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Lipase",
+        "wert": "840",
+        "einheit": "U/l"
+      },
+      {
+        "name": "CRP",
+        "wert": "65",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "Kalzium",
+        "wert": "2,25",
+        "einheit": "mmol/l"
+      },
+      {
+        "name": "Triglyzeride",
+        "wert": "115",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "0,92",
+        "einheit": "mg/dl"
+      }
+    ]
+  },
+  {
+    "fall_id": "08",
+    "datei": "08_copd_exazerbation.txt",
+    "diagnosen": [
+      "Akute Exazerbation einer COPD",
+      "COPD GOLD 2 (bekannt)"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Tiotropium",
+        "dosis": "18 µg",
+        "einnahmeschema": "1-0-0 inhalativ"
+      },
+      {
+        "name": "Salbutamol",
+        "dosis": "100 µg pro Hub",
+        "einnahmeschema": "1–2 Hübe bei Bedarf"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Leukozyten",
+        "wert": "10,7",
+        "einheit": "G/l"
+      },
+      {
+        "name": "CRP",
+        "wert": "18",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "pCO₂",
+        "wert": "45",
+        "einheit": "mmHg"
+      },
+      {
+        "name": "pO₂",
+        "wert": "70",
+        "einheit": "mmHg"
+      }
+    ]
+  },
+  {
+    "fall_id": "09",
+    "datei": "09_diabetes_mellitus_typ_2.txt",
+    "diagnosen": [
+      "Neu diagnostizierter Diabetes mellitus Typ 2",
+      "Adipositas Grad I"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Metformin",
+        "dosis": "500 mg",
+        "einnahmeschema": "1-0-1 zu den Mahlzeiten"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "HbA1c",
+        "wert": "9,1",
+        "einheit": "%"
+      },
+      {
+        "name": "Nüchternglukose",
+        "wert": "247",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "0,81",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "eGFR",
+        "wert": "105",
+        "einheit": "ml/min/1,73 m²"
+      }
+    ]
+  },
+  {
+    "fall_id": "10",
+    "datei": "10_transitorische_ischaemische_attacke.txt",
+    "diagnosen": [
+      "Wahrscheinliche transitorische ischämische Attacke (TIA) im linken Stromgebiet",
+      "Dyslipidämie"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "ASS",
+        "dosis": "100 mg",
+        "einnahmeschema": "1-0-0"
+      },
+      {
+        "name": "Atorvastatin",
+        "dosis": "40 mg",
+        "einnahmeschema": "0-0-1"
+      },
+      {
+        "name": "Candesartan",
+        "dosis": "8 mg",
+        "einnahmeschema": "1-0-0"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "LDL-Cholesterin",
+        "wert": "145",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "HbA1c",
+        "wert": "5,9",
+        "einheit": "%"
+      },
+      {
+        "name": "CRP",
+        "wert": "1,2",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "0,88",
+        "einheit": "mg/dl"
+      }
+    ]
+  },
+  {
+    "fall_id": "11",
+    "datei": "11_ureterstein_mit_nierenkolik.txt",
+    "diagnosen": [
+      "Distaler Ureterstein rechts mit Nierenkolik",
+      "Mikrohämaturie"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Ibuprofen",
+        "dosis": "400 mg",
+        "einnahmeschema": "bei Bedarf gegen Kolikschmerzen, sofern verträglich"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Leukozyten",
+        "wert": "7,9",
+        "einheit": "G/l"
+      },
+      {
+        "name": "CRP",
+        "wert": "3",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "1,10",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "Erythrozyten im Urin",
+        "wert": "++",
+        "einheit": ""
+      }
+    ]
+  },
+  {
+    "fall_id": "12",
+    "datei": "12_obere_gastrointestinale_blutung.txt",
+    "diagnosen": [
+      "Obere gastrointestinale Blutung bei Ulcus ventriculi",
+      "Akute posthämorrhagische Anämie"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Pantoprazol",
+        "dosis": "40 mg",
+        "einnahmeschema": "1-0-1 für 14 Tage, anschließend 1-0-0 bis zur Kontrolle"
+      },
+      {
+        "name": "Lisinopril",
+        "dosis": "10 mg",
+        "einnahmeschema": "1-0-0"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Hämoglobin",
+        "wert": "8,7",
+        "einheit": "g/dl"
+      },
+      {
+        "name": "MCV",
+        "wert": "82",
+        "einheit": "fl"
+      },
+      {
+        "name": "Harnstoff",
+        "wert": "62",
+        "einheit": "mg/dl"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "0,92",
+        "einheit": "mg/dl"
+      }
+    ]
+  },
+  {
+    "fall_id": "13",
+    "datei": "13_erysipel_unterschenkel.txt",
+    "diagnosen": [
+      "Erysipel des rechten Unterschenkels"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Amoxicillin",
+        "dosis": "1 g",
+        "einnahmeschema": "1-1-1 für weitere 5 Tage"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "CRP",
+        "wert": "98",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "Leukozyten",
+        "wert": "14,2",
+        "einheit": "G/l"
+      },
+      {
+        "name": "Glukose",
+        "wert": "119",
+        "einheit": "mg/dl"
+      }
+    ]
+  },
+  {
+    "fall_id": "14",
+    "datei": "14_hashimoto_hypothyreose.txt",
+    "diagnosen": [
+      "Primäre Hypothyreose bei Hashimoto-Thyreoiditis"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Levothyroxin",
+        "dosis": "50 µg",
+        "einnahmeschema": "1-0-0 morgens nüchtern"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "TSH",
+        "wert": "16,8",
+        "einheit": "mIU/l"
+      },
+      {
+        "name": "fT4",
+        "wert": "0,58",
+        "einheit": "ng/dl"
+      },
+      {
+        "name": "Anti-TPO-Antikörper",
+        "wert": "420",
+        "einheit": "IU/ml"
+      }
+    ]
+  },
+  {
+    "fall_id": "15",
+    "datei": "15_akute_virale_gastroenteritis.txt",
+    "diagnosen": [
+      "Akute Gastroenteritis, am ehesten viral",
+      "Leichte Hypokaliämie bei gastrointestinalem Flüssigkeitsverlust"
+    ],
+    "entlassmedikation": [],
+    "laborwerte": [
+      {
+        "name": "Leukozyten",
+        "wert": "8,1",
+        "einheit": "G/l"
+      },
+      {
+        "name": "CRP",
+        "wert": "6",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "Natrium",
+        "wert": "134",
+        "einheit": "mmol/l"
+      },
+      {
+        "name": "Kalium",
+        "wert": "3,3",
+        "einheit": "mmol/l"
+      }
+    ]
+  },
+  {
+    "fall_id": "16",
+    "datei": "16_rheumatoide_arthritis.txt",
+    "diagnosen": [
+      "Frühe seropositive rheumatoide Arthritis"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Naproxen",
+        "dosis": "250 mg",
+        "einnahmeschema": "1-0-1 für höchstens 5 Tage nach Rücksprache"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "CRP",
+        "wert": "28",
+        "einheit": "mg/l"
+      },
+      {
+        "name": "BSG",
+        "wert": "42",
+        "einheit": "mm/h"
+      },
+      {
+        "name": "Rheumafaktor",
+        "wert": "84",
+        "einheit": "IU/ml"
+      },
+      {
+        "name": "Anti-CCP-Antikörper",
+        "wert": "220",
+        "einheit": "U/ml"
+      }
+    ]
+  },
+  {
+    "fall_id": "17",
+    "datei": "17_paroxysmales_vorhofflimmern.txt",
+    "diagnosen": [
+      "Paroxysmales Vorhofflimmern mit tachykarder Überleitung",
+      "Arterielle Hypertonie",
+      "Diabetes mellitus Typ 2"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Metoprololsuccinat",
+        "dosis": "47,5 mg",
+        "einnahmeschema": "1-0-0"
+      },
+      {
+        "name": "Apixaban",
+        "dosis": "5 mg",
+        "einnahmeschema": "1-0-1"
+      },
+      {
+        "name": "Metformin",
+        "dosis": "1000 mg",
+        "einnahmeschema": "1-0-1"
+      },
+      {
+        "name": "Ramipril",
+        "dosis": "5 mg",
+        "einnahmeschema": "1-0-0"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Kalium",
+        "wert": "4,3",
+        "einheit": "mmol/l"
+      },
+      {
+        "name": "TSH",
+        "wert": "1,5",
+        "einheit": "mIU/l"
+      },
+      {
+        "name": "Hämoglobin",
+        "wert": "14,5",
+        "einheit": "g/dl"
+      },
+      {
+        "name": "Kreatinin",
+        "wert": "0,90",
+        "einheit": "mg/dl"
+      }
+    ]
+  },
+  {
+    "fall_id": "18",
+    "datei": "18_asthma_exazerbation.txt",
+    "diagnosen": [
+      "Asthma bronchiale mit aktuell unzureichender Kontrolle"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Budesonid/Formoterol",
+        "dosis": "160/4,5 µg pro Inhalation",
+        "einnahmeschema": "1 Inhalation morgens und abends"
+      },
+      {
+        "name": "Salbutamol",
+        "dosis": "100 µg pro Hub",
+        "einnahmeschema": "bei Bedarf gemäß Asthma-Aktionsplan"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Eosinophile",
+        "wert": "0,45",
+        "einheit": "G/l"
+      },
+      {
+        "name": "CRP",
+        "wert": "3,0",
+        "einheit": "mg/l"
+      }
+    ]
+  },
+  {
+    "fall_id": "19",
+    "datei": "19_lumbale_radikulopathie.txt",
+    "diagnosen": [
+      "Akute lumbale Radikulopathie L5 rechts bei Bandscheibenprotrusion L4/5"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Ibuprofen",
+        "dosis": "400 mg",
+        "einnahmeschema": "bei Bedarf, kurzfristig maximal dreimal täglich"
+      },
+      {
+        "name": "Pantoprazol",
+        "dosis": "20 mg",
+        "einnahmeschema": "1-0-0 während regelmäßiger NSAR-Einnahme"
+      }
+    ],
+    "laborwerte": []
+  },
+  {
+    "fall_id": "20",
+    "datei": "20_eisenmangelanaemie.txt",
+    "diagnosen": [
+      "Eisenmangelanämie bei chronischem Blutverlust durch Hypermenorrhö"
+    ],
+    "entlassmedikation": [
+      {
+        "name": "Eisen(II)-sulfat",
+        "dosis": "100 mg elementares Eisen",
+        "einnahmeschema": "jeden zweiten Morgen nüchtern, nach Verträglichkeit"
+      }
+    ],
+    "laborwerte": [
+      {
+        "name": "Hämoglobin",
+        "wert": "9,6",
+        "einheit": "g/dl"
+      },
+      {
+        "name": "MCV",
+        "wert": "71",
+        "einheit": "fl"
+      },
+      {
+        "name": "Ferritin",
+        "wert": "7",
+        "einheit": "ng/ml"
+      },
+      {
+        "name": "Transferrinsättigung",
+        "wert": "7",
+        "einheit": "%"
+      },
+      {
+        "name": "CRP",
+        "wert": "2",
+        "einheit": "mg/l"
+      }
+    ]
+  }
+]
