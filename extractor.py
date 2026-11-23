@@ -20,13 +20,15 @@ class MedicalExtractor:
     - Do not include suspected or ruled-out diagnoses.
     - Do not invent missing information.
     - Use empty lists if a category contains no information.
+    - Ignore placeholders, generic labels, and unfilled template fields.
+    - Do not confuse medication dosage with administration schedule.
     - For laboratory values, separate the numeric value
-    from its unit.
+      from its unit.
     - The "wert" field must contain only the measured value.
     - The "einheit" field must contain only the unit.
     - Example: "CRP: 86 mg/l" ->
         wert: "86", einheit: "mg/l".
-    
+
     Medical report:
     {text}
      """

@@ -2,7 +2,7 @@ from models import Medikament, Laborwert, ArztbriefErgebnis
 from pathlib import Path
 from extractor import MedicalExtractor
 
-file_path = Path("arztbriefe/01_ambulant_erworbene_pneumonie.txt")
+file_path = Path("arztbriefe/02_dekompensierte_herzinsuffizienz.txt")
 text = file_path.read_text(encoding="utf-8")
 
 
