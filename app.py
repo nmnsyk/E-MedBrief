@@ -7,18 +7,12 @@ from urllib.parse import quote
 import streamlit as st
 from extractor import MedicalExtractor
 
-# --------------------------------------------------
-# PAGE CONFIG
-# --------------------------------------------------
 
 st.set_page_config(
     page_title="E-MedBrief",
     layout="wide"
 )
 
-# --------------------------------------------------
-# IMAGES (als Base64 eingebettet)
-# --------------------------------------------------
 
 def to_data_uri(path: Path) -> str:
     if not path.exists():
@@ -36,9 +30,6 @@ def to_data_uri(path: Path) -> str:
 heart_url = to_data_uri(Path("images/heart_bg.png"))
 heart_css = f'url("{heart_url}")' if heart_url else "none"
 
-# --------------------------------------------------
-# ICONS (Linien-Icons statt Emojis)
-# --------------------------------------------------
 
 ICON_PULSE = '<path d="M3 12h4l2-6 4 12 2-6h6"/>'
 ICON_PILL = '<path d="M10.5 20.5a4.95 4.95 0 0 1-7-7l10-10a4.95 4.95 0 0 1 7 7l-10 10z"/><path d="M8.5 8.5l7 7"/>'
@@ -66,12 +57,6 @@ icon_pulse = svg_uri(ICON_PULSE, "#16264A")
 icon_pill = svg_uri(ICON_PILL, "#16264A")
 icon_flask = svg_uri(ICON_FLASK, "#16264A")
 
-
-# --------------------------------------------------
-# KARTEN-ANSICHT (statt Tabellen)
-# Funktioniert mit beliebigen Feldnamen: Das Feld "name" (o. ä.) wird zum Titel,
-# "wert" + "einheit" werden groß rechts angezeigt, alles andere als kleine Infos.
-# --------------------------------------------------
 
 TITLE_KEYS = ("name", "bezeichnung", "medikament", "wirkstoff", "parameter", "laborwert", "test")
 
@@ -129,14 +114,6 @@ def render_items(items, icon_inner, value_keys=(), unit_keys=()) -> str:
             f'</div>'
         )
     return "".join(cards)
-
-# --------------------------------------------------
-# STYLING
-# Palette:  Papier #F5F6F8 · Tinte #101828 · Marine #16264A
-#           Soft #667085 · Linie #E4E7EC · Akzent-Grün #2E8B73
-# Flach, ohne Verläufe. Eine kräftige Fläche (Hero), der Rest ruhig.
-# Bewegung: langsamer Hintergrund, einmaliger Reveal, pulsierender Statuspunkt
-# --------------------------------------------------
 
 st.markdown(f"""
 <style>
