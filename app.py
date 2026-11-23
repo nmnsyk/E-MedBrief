@@ -71,7 +71,7 @@ def _clean(value) -> str:
 
 def render_items(items, icon_inner, value_keys=(), unit_keys=()) -> str:
     cards = []
-    for i, item in enumerate(items):
+    for item in items:
         value = unit = meta = title = ""
 
         if isinstance(item, dict):
@@ -107,7 +107,7 @@ def render_items(items, icon_inner, value_keys=(), unit_keys=()) -> str:
             value_html = f'<div class="item-value">{html.escape(value)}{unit_html}</div>'
 
         cards.append(
-            f'<div class="item-card" style="animation-delay:{i * 70}ms">'
+            f'<div class="item-card">'
             f'<div class="item-icon">{svg_inline(icon_inner, 20)}</div>'
             f'<div class="item-body"><div class="item-title">{html.escape(title)}</div>{meta}</div>'
             f'{value_html}'
@@ -115,10 +115,18 @@ def render_items(items, icon_inner, value_keys=(), unit_keys=()) -> str:
         )
     return "".join(cards)
 
+def show_notice(kind: str, message: str) -> None:
+    """Show a high-contrast, readable message."""
+    if kind not in {"warning", "error", "success", "info"}:
+        kind = "info"
+    st.markdown(
+        f'<div class="notice notice--{kind}">{html.escape(message)}</div>',
+        unsafe_allow_html=True,
+    )
+
+
 st.markdown(f"""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
     :root {{
         --paper: #F5F6F8;
         --surface: #FFFFFF;
@@ -133,7 +141,7 @@ st.markdown(f"""
     }}
 
     html, body, [class*="css"] {{
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }}
 
     ::selection {{ background: rgba(22, 38, 74, 0.18); }}
@@ -146,24 +154,16 @@ st.markdown(f"""
         color: var(--ink);
     }}
 
-    /* sehr ruhige, langsam wandernde Farbflächen in gedämpftem Blaugrau */
+    /* Statische Akzentflächen: weniger Rechenlast als eine ständig animierte Fläche. */
     .stApp::after {{
         content: "";
         position: fixed;
-        inset: -15%;
-        background:
-            radial-gradient(560px 440px at 10% 15%, rgba(22, 38, 74, 0.08) 0%, transparent 70%),
-            radial-gradient(640px 500px at 92% 8%, rgba(96, 116, 160, 0.09) 0%, transparent 70%),
-            radial-gradient(700px 540px at 55% 100%, rgba(46, 139, 115, 0.06) 0%, transparent 70%);
-        background-size: 130% 130%;
-        animation: drift 34s ease-in-out infinite alternate;
+        inset: 0;
+        background: radial-gradient(
+            circle at 90% 12%, rgba(22, 38, 74, 0.055), transparent 40%
+        );
         pointer-events: none;
         z-index: 0;
-    }}
-
-    @keyframes drift {{
-        0%   {{ background-position: 0% 0%; }}
-        100% {{ background-position: 100% 100%; }}
     }}
 
     .block-container {{
@@ -239,12 +239,6 @@ st.markdown(f"""
         height: 7px;
         border-radius: 50%;
         background: var(--green);
-        animation: pulse 2.4s ease-out infinite;
-    }}
-
-    @keyframes pulse {{
-        0%   {{ box-shadow: 0 0 0 0 rgba(46, 139, 115, 0.45); }}
-        100% {{ box-shadow: 0 0 0 9px rgba(46, 139, 115, 0); }}
     }}
 
     /* ---------- Hero: die eine kräftige Fläche ---------- */
@@ -376,40 +370,93 @@ st.markdown(f"""
         color: #FFFFFF !important;
     }}
 
+    /* "Neuer Arztbrief": weißer Button mit stets dunkler Schrift. */
+    button[kind="secondary"],
     button[data-testid="stBaseButton-secondary"] {{
-        background: var(--surface) !important;
-        color: var(--ink) !important;
-        border: 1px solid var(--line) !important;
+        background: #FFFFFF !important;
+        color: #16264A !important;
+        -webkit-text-fill-color: #16264A !important;
+        border: 1px solid #AAB5C8 !important;
         border-radius: 999px !important;
         font-weight: 600 !important;
         padding: 0.6rem 1.5rem !important;
         box-shadow: none !important;
-        transition: border-color 0.2s ease !important;
     }}
 
+    button[kind="secondary"] *,
+    button[data-testid="stBaseButton-secondary"] * {{
+        color: #16264A !important;
+        -webkit-text-fill-color: #16264A !important;
+        opacity: 1 !important;
+    }}
+
+    button[kind="secondary"]:hover,
     button[data-testid="stBaseButton-secondary"]:hover {{
-        border-color: var(--navy) !important;
-        color: var(--navy) !important;
+        background: #ECEFF5 !important;
+        border-color: #16264A !important;
     }}
 
-    /* ---------- Hinweise ---------- */
-    div[data-testid="stAlert"],
-    div[data-baseweb="notification"] {{
-        background: var(--surface) !important;
-        border: 1px solid var(--line) !important;
-        border-radius: 14px !important;
-        box-shadow: none !important;
+    /* Neuer Arztbrief: nur dieser Button – dunkler Hintergrund, weiße Schrift. */
+    .st-key-neuer_arztbrief_button button {{
+        background-color: #16264A !important;
+        color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+        border: 1px solid #16264A !important;
     }}
 
-    div[data-testid="stAlert"] *,
-    div[data-baseweb="notification"] * {{
-        color: var(--ink) !important;
+    .st-key-neuer_arztbrief_button button *,
+    .st-key-neuer_arztbrief_button button p {{
+        color: #FFFFFF !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+        opacity: 1 !important;
     }}
 
-    /* ---------- Reveal: der eine bewegte Moment ---------- */
-    @keyframes rise {{
-        from {{ opacity: 0; transform: translateY(14px); }}
-        to   {{ opacity: 1; transform: translateY(0); }}
+    .st-key-neuer_arztbrief_button button:hover {{
+        background-color: #23396B !important;
+        border-color: #23396B !important;
+    }}
+
+    /* ---------- Gut lesbare Hinweise ---------- */
+    .notice {{
+        padding: 15px 18px;
+        border-radius: 14px;
+        border: 1px solid;
+        margin: 14px 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.6;
+    }}
+    .notice--warning {{ background: #FFF7E8; border-color: #E6C080; color: #78440D; }}
+    .notice--error   {{ background: #FFF1F2; border-color: #E5A3AE; color: #8E2437; }}
+    .notice--success {{ background: #EDF8F1; border-color: #B5DDC4; color: #185D3B; }}
+    .notice--info    {{ background: #EEF4FC; border-color: #B8CAE4; color: #193C65; }}
+
+    /* ---------- Analyse-Animation: nur der Spinner dreht ---------- */
+    .loading-card {{
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 20px;
+        margin: 16px 0;
+        border: 1px solid #CAD4E4;
+        border-radius: 16px;
+        background: #FFFFFF;
+        color: #16264A;
+        font-size: 0.96rem;
+        font-weight: 600;
+    }}
+    .loading-wheel {{
+        display: block;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
+        border: 3px solid #DCE3EE;
+        border-top-color: #16264A;
+        border-radius: 50%;
+        animation: loading-spin 0.85s linear infinite;
+    }}
+    @keyframes loading-spin {{
+        to {{ transform: rotate(360deg); }}
     }}
 
     /* ---------- Kennzahlen ---------- */
@@ -419,7 +466,6 @@ st.markdown(f"""
         border-radius: 22px;
         padding: 24px 28px 22px 28px;
         box-shadow: var(--shadow-sm);
-        animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     }}
 
     div[data-testid="stMetric"]::before {{
@@ -471,7 +517,6 @@ st.markdown(f"""
         font-weight: 500;
         line-height: 1.55;
         box-shadow: var(--shadow-sm);
-        animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
         transition: border-color 0.2s ease;
     }}
 
@@ -503,7 +548,6 @@ st.markdown(f"""
         padding: 16px 20px;
         margin-bottom: 10px;
         box-shadow: var(--shadow-sm);
-        animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
         transition: border-color 0.2s ease;
     }}
 
@@ -586,7 +630,6 @@ st.markdown(f"""
         overflow: hidden;
         border: 1px solid var(--line);
         box-shadow: var(--shadow-sm);
-        animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     }}
 
     /* ---------- Expander ---------- */
@@ -625,16 +668,17 @@ st.markdown(f"""
         div[data-testid="stMetricValue"] {{ font-size: 2.5rem !important; }}
     }}
 
-    /* ---------- Bewegung reduzieren, wenn gewünscht ---------- */
     @media (prefers-reduced-motion: reduce) {{
-        .stApp::after,
-        .status i,
-        div[data-testid="stMetric"],
-        .diagnosis-card,
-        div[data-testid="stDataFrame"] {{
-            animation: none !important;
-        }}
+        .loading-wheel {{ animation-duration: 2s; }}
     }}
+    /* Kennzahlen: alle Texte auf den weißen Karten dunkel darstellen. */
+    [data-testid="stMetric"],
+    [data-testid="stMetric"] * {{
+        color: #16264A !important;
+        -webkit-text-fill-color: #16264A !important;
+        opacity: 1 !important;
+    }}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -663,39 +707,68 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-arztbrief_text = st.text_area(
-    "Arztbrief eingeben",
-    height=240,
-    placeholder="Fügen Sie hier den Arztbrief ein ..."
+# Clear input and previous results before Streamlit renders the widgets again.
+def reset_arztbrief():
+    st.session_state["arztbrief_input"] = ""
+    st.session_state.pop("ergebnis", None)
+    st.session_state.pop("analysierter_text", None)
+
+
+# The form prevents reruns while typing.
+with st.form("arztbrief_form", clear_on_submit=False):
+    arztbrief_text = st.text_area(
+        "Arztbrief eingeben",
+        height=240,
+        placeholder="Fügen Sie hier den Arztbrief ein ...",
+        key="arztbrief_input",
+    )
+    submitted = st.form_submit_button(
+        "Medizinische Informationen extrahieren",
+        type="primary",
+    )
+
+st.button(
+    "Neuer Arztbrief",
+    type="secondary",
+    on_click=reset_arztbrief,
+    key="neuer_arztbrief_button",
 )
 
-if st.button("Medizinische Informationen extrahieren", type="primary"):
-    if not arztbrief_text.strip():
-        st.warning("Bitte geben Sie einen Arztbrief ein.")
-    else:
-        st.session_state.pop("ergebnis", None)
+if submitted:
+    # Do not show old results while starting a new analysis.
+    st.session_state.pop("ergebnis", None)
+    st.session_state.pop("analysierter_text", None)
 
+    if not arztbrief_text.strip():
+        show_notice("warning", "Bitte geben Sie einen Arztbrief ein.")
+    else:
+        loader = st.empty()
+        loader.markdown(
+            '<div class="loading-card">'
+            '<span class="loading-wheel" aria-hidden="true"></span>'
+            '<span>Arztbrief wird analysiert...</span>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
         try:
             extractor = MedicalExtractor(model_name="llama3.1")
-
-            with st.spinner("Arztbrief wird analysiert ..."):
-                ergebnis = extractor.extract_medical_info(arztbrief_text)
-
+            ergebnis = extractor.extract_medical_info(arztbrief_text)
             st.session_state["ergebnis"] = ergebnis.model_dump()
             st.session_state["analysierter_text"] = arztbrief_text
-
-        except Exception as e:
-            st.error(f"Fehler bei der Analyse: {e}")
+        except Exception as exc:
+            show_notice("error", f"Fehler bei der Analyse: {exc}")
+        finally:
+            loader.empty()
 
 if "ergebnis" in st.session_state:
 
     if st.session_state.get("analysierter_text") != arztbrief_text:
-        st.info("Der Arztbrief wurde geändert. Bitte starten Sie die Analyse erneut.")
+        show_notice("info", "Der Arztbrief wurde geändert. Bitte starten Sie die Analyse erneut.")
     else:
         data = st.session_state["ergebnis"]
 
         st.divider()
-        st.success("Analyse abgeschlossen!")
+        show_notice("success", "Analyse abgeschlossen!")
         st.subheader("Extrahierte Informationen")
 
         col1, col2, col3 = st.columns(3)
@@ -711,13 +784,13 @@ if "ergebnis" in st.session_state:
 
         st.subheader("Diagnosen")
         if data["diagnosen"]:
-            for i, diagnose in enumerate(data["diagnosen"]):
+            for diagnose in data["diagnosen"]:
                 st.markdown(
-                    f'<div class="diagnosis-card" style="animation-delay:{i * 80}ms">{diagnose}</div>',
+                    f'<div class="diagnosis-card">{html.escape(diagnose)}</div>',
                     unsafe_allow_html=True
                 )
         else:
-            st.info("Keine Diagnosen gefunden.")
+            show_notice("info", "Keine Diagnosen gefunden.")
 
         st.write("")
 
@@ -731,7 +804,7 @@ if "ergebnis" in st.session_state:
                     unsafe_allow_html=True
                 )
             else:
-                st.info("Keine Medikamente gefunden.")
+                show_notice("info", "Keine Medikamente gefunden.")
 
         with col_lab:
             st.subheader("Laborwerte")
@@ -746,7 +819,7 @@ if "ergebnis" in st.session_state:
                     unsafe_allow_html=True
                 )
             else:
-                st.info("Keine Laborwerte gefunden.")
+                show_notice("info", "Keine Laborwerte gefunden.")
 
         st.write("")
 

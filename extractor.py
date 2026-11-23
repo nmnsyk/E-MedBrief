@@ -20,6 +20,8 @@ class MedicalExtractor:
     - Do not include suspected or ruled-out diagnoses.
     - Do not invent missing information.
     - Use empty lists if a category contains no information.
+    - If the text contains no valid medical information,
+      return empty lists for all categories.
     - Ignore placeholders, generic labels, and unfilled template fields.
     - Do not confuse medication dosage with administration schedule.
     - For laboratory values, separate the numeric value
