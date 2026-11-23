@@ -168,26 +168,6 @@ For a fictional medical report, E-MedBrief may generate the following structured
 }
 ```
 
-## Future Improvements
-
-The current version focuses on building a working end-to-end medical information extraction system.
-
-Planned improvements include:
-
-- Evaluating extraction quality using the fictional medical reports
-- Calculating precision, recall, and F1-score
-- Improving extraction accuracy and error handling
-- Adding references to the original text for extracted information
-
-## Limitations and Disclaimer
-
-E-MedBrief is an educational prototype developed as a personal portfolio project.
-
-- The application extracts and organizes information but does not explain medical terms or provide medical advice.
-- Pydantic validates the JSON structure, not the medical accuracy of the extracted information.
-- LLM responses may contain incorrect or missing information.
-- The project uses fictional medical reports for development and testing. It has not been validated for processing real patient data.
-
 **E-MedBrief is not intended for clinical decision-making, diagnosis, or treatment.**
 
 ---
