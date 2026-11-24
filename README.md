@@ -171,4 +171,3 @@ For a fictional medical report, E-MedBrief may generate the following structured
 
 ---
 
-*Developed as a personal portfolio project to explore Large Language Models, medical NLP, structured information extraction, and local AI applications.*
