@@ -140,7 +140,6 @@ Make sure Ollama is running, then execute:
 python -m streamlit run app.py
 ```
 
-The application is available at `http://localhost:8501`.
 
 ## Example Output
 
